@@ -39,9 +39,9 @@
                                     <constraint firstItem="Dtq-6p-pTc" firstAttribute="leading" secondItem="DUg-ut-P45" secondAttribute="leading" constant="10" id="VOb-xB-cP7"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH5-SU-Vjb">
-                                <rect key="frame" x="20" y="64" width="48" height="30"/>
-                                <state key="normal" title="Master"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH5-SU-Vjb">
+                                <rect key="frame" x="20" y="64" width="24" height="24"/>
+                                <state key="normal" image="more"/>
                                 <connections>
                                     <segue destination="QWS-e4-zP2" kind="show" id="mFo-uW-ISO"/>
                                 </connections>
@@ -74,7 +74,7 @@
         <!--Master-->
         <scene sceneID="bNh-70-9Nt">
             <objects>
-                <viewController id="QWS-e4-zP2" customClass="MasterViewController" customModule="Mobileyes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QWS-e4-zP2" customClass="MoreViewController" customModule="Mobileyes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PYM-Wo-vdX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,5 +123,6 @@
     </scenes>
     <resources>
         <image name="heart" width="24" height="24"/>
+        <image name="more" width="24" height="24"/>
     </resources>
 </document>

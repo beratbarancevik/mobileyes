@@ -11,7 +11,7 @@
 		F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6002274428C008323A6 /* AppDelegate.swift */; };
 		F48AE6032274428C008323A6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6022274428C008323A6 /* MainViewController.swift */; };
 		F48AE6082274428F008323A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6072274428F008323A6 /* Assets.xcassets */; };
-		F4DB9D5A227447F600776FF0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D59227447F600776FF0 /* MasterViewController.swift */; };
+		F4DB9D5A227447F600776FF0 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D59227447F600776FF0 /* MoreViewController.swift */; };
 		F4DB9D5C2274528700776FF0 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D5B2274528700776FF0 /* Inceptionv3.mlmodel */; };
 		F4DB9D5E2274550F00776FF0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D5D2274550F00776FF0 /* Extensions.swift */; };
 		F4DB9D602274555800776FF0 /* MainViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */; };
@@ -29,7 +29,7 @@
 		F48AE6022274428C008323A6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F48AE6072274428F008323A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F48AE60C2274428F008323A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4DB9D59227447F600776FF0 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		F4DB9D59227447F600776FF0 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		F4DB9D5B2274528700776FF0 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
 		F4DB9D5D2274550F00776FF0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				F48AE6022274428C008323A6 /* MainViewController.swift */,
 				F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */,
 				F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */,
-				F4DB9D59227447F600776FF0 /* MasterViewController.swift */,
+				F4DB9D59227447F600776FF0 /* MoreViewController.swift */,
 				F4DB9D632274646D00776FF0 /* Supporting Files */,
 			);
 			path = Mobileyes;
@@ -228,7 +228,7 @@
 			files = (
 				F4DB9D5C2274528700776FF0 /* Inceptionv3.mlmodel in Sources */,
 				F4DB9D5E2274550F00776FF0 /* Extensions.swift in Sources */,
-				F4DB9D5A227447F600776FF0 /* MasterViewController.swift in Sources */,
+				F4DB9D5A227447F600776FF0 /* MoreViewController.swift in Sources */,
 				F48AE6032274428C008323A6 /* MainViewController.swift in Sources */,
 				F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */,
 				F4DB9D602274555800776FF0 /* MainViewController+ARSessionDelegate.swift in Sources */,

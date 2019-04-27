@@ -9,7 +9,7 @@
 import AVFoundation
 import UIKit
 
-class MasterViewController: UIViewController {
+class MoreViewController: UIViewController {
     
     // MARK: - UI Variables
 
@@ -20,7 +20,7 @@ class MasterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        speakButton.addTarget(self, action: #selector(speakButtonTapped), for: .touchUpInside)
+//        speakButton.addTarget(self, action: #selector(speakButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - User Interaction Functions
