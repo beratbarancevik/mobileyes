@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		3E7BE749E108E33CCBC419E5 /* Pods_Mobileyes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */; };
 		F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6002274428C008323A6 /* AppDelegate.swift */; };
-		F48AE6032274428C008323A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6022274428C008323A6 /* ViewController.swift */; };
+		F48AE6032274428C008323A6 /* BeratViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6022274428C008323A6 /* BeratViewController.swift */; };
 		F48AE6062274428C008323A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6042274428C008323A6 /* Main.storyboard */; };
 		F48AE6082274428F008323A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6072274428F008323A6 /* Assets.xcassets */; };
-		F48AE60B2274428F008323A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6092274428F008323A6 /* LaunchScreen.storyboard */; };
+		F48AE60B2274428F008323A6 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6092274428F008323A6 /* Launch.storyboard */; };
+		F4DB9D582274462800776FF0 /* OmerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D572274462800776FF0 /* OmerViewController.swift */; };
+		F4DB9D5A227447F600776FF0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D59227447F600776FF0 /* MasterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +23,13 @@
 		9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobileyes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48AE5FD2274428C008323A6 /* Mobileyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobileyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48AE6002274428C008323A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F48AE6022274428C008323A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F48AE6022274428C008323A6 /* BeratViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeratViewController.swift; sourceTree = "<group>"; };
 		F48AE6052274428C008323A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F48AE6072274428F008323A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F48AE60A2274428F008323A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F48AE60A2274428F008323A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		F48AE60C2274428F008323A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4DB9D572274462800776FF0 /* OmerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmerViewController.swift; sourceTree = "<group>"; };
+		F4DB9D59227447F600776FF0 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +82,14 @@
 		F48AE5FF2274428C008323A6 /* Mobileyes */ = {
 			isa = PBXGroup;
 			children = (
-				F48AE6002274428C008323A6 /* AppDelegate.swift */,
-				F48AE6022274428C008323A6 /* ViewController.swift */,
+				F4DB9D572274462800776FF0 /* OmerViewController.swift */,
+				F4DB9D59227447F600776FF0 /* MasterViewController.swift */,
+				F48AE6022274428C008323A6 /* BeratViewController.swift */,
 				F48AE6042274428C008323A6 /* Main.storyboard */,
-				F48AE6092274428F008323A6 /* LaunchScreen.storyboard */,
+				F48AE6092274428F008323A6 /* Launch.storyboard */,
 				F48AE6072274428F008323A6 /* Assets.xcassets */,
 				F48AE60C2274428F008323A6 /* Info.plist */,
+				F48AE6002274428C008323A6 /* AppDelegate.swift */,
 			);
 			path = Mobileyes;
 			sourceTree = "<group>";
@@ -148,7 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48AE60B2274428F008323A6 /* LaunchScreen.storyboard in Resources */,
+				F48AE60B2274428F008323A6 /* Launch.storyboard in Resources */,
 				F48AE6082274428F008323A6 /* Assets.xcassets in Resources */,
 				F48AE6062274428C008323A6 /* Main.storyboard in Resources */,
 			);
@@ -203,8 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48AE6032274428C008323A6 /* ViewController.swift in Sources */,
+				F4DB9D5A227447F600776FF0 /* MasterViewController.swift in Sources */,
+				F48AE6032274428C008323A6 /* BeratViewController.swift in Sources */,
 				F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */,
+				F4DB9D582274462800776FF0 /* OmerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,12 +227,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F48AE6092274428F008323A6 /* LaunchScreen.storyboard */ = {
+		F48AE6092274428F008323A6 /* Launch.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F48AE60A2274428F008323A6 /* Base */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Launch.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
