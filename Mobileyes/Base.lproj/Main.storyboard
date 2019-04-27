@@ -33,10 +33,24 @@
                     <view key="view" contentMode="scaleToFill" id="NXf-40-ZNh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJA-sY-cLt">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            </arscnView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="DJA-sY-cLt" firstAttribute="leading" secondItem="etU-Gg-Iez" secondAttribute="leading" id="7id-zq-YPO"/>
+                            <constraint firstItem="etU-Gg-Iez" firstAttribute="trailing" secondItem="DJA-sY-cLt" secondAttribute="trailing" id="cPS-zQ-Mcd"/>
+                            <constraint firstItem="DJA-sY-cLt" firstAttribute="top" secondItem="etU-Gg-Iez" secondAttribute="top" id="djd-DA-cXq"/>
+                            <constraint firstItem="etU-Gg-Iez" firstAttribute="bottom" secondItem="DJA-sY-cLt" secondAttribute="bottom" id="z08-hv-zmk"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="etU-Gg-Iez"/>
                     </view>
                     <navigationItem key="navigationItem" title="Omer" id="W2p-jh-Mia"/>
+                    <connections>
+                        <outlet property="sceneView" destination="DJA-sY-cLt" id="U7u-lB-R2X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLC-jw-bNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,13 +94,12 @@
         <!--Navigation Controller-->
         <scene sceneID="gmA-fy-OHT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="G7d-2N-lBf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="G7d-2N-lBf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="star" id="5YB-la-9co">
                         <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bL0-N1-YFH">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
