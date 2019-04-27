@@ -18,6 +18,9 @@
 		F4DB9D62227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */; };
 		F4DB9D652274654A00776FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DB9D642274654A00776FF0 /* Main.storyboard */; };
 		F4DB9D672274655400776FF0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DB9D662274655400776FF0 /* Launch.storyboard */; };
+		F4DB9D69227474CA00776FF0 /* AddCustomObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D68227474CA00776FF0 /* AddCustomObjectViewController.swift */; };
+		F4DB9D6B2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D6A2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift */; };
+		F4DB9D6D2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D6C2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ARCNViewDelegate.swift"; sourceTree = "<group>"; };
 		F4DB9D642274654A00776FF0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F4DB9D662274655400776FF0 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		F4DB9D68227474CA00776FF0 /* AddCustomObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomObjectViewController.swift; sourceTree = "<group>"; };
+		F4DB9D6A2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCustomObjectViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		F4DB9D6C2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCustomObject+ARSessionDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +99,9 @@
 				F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */,
 				F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */,
 				F4DB9D59227447F600776FF0 /* MoreViewController.swift */,
+				F4DB9D68227474CA00776FF0 /* AddCustomObjectViewController.swift */,
+				F4DB9D6A2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift */,
+				F4DB9D6C2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift */,
 				F4DB9D632274646D00776FF0 /* Supporting Files */,
 			);
 			path = Mobileyes;
@@ -226,10 +235,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4DB9D69227474CA00776FF0 /* AddCustomObjectViewController.swift in Sources */,
 				F4DB9D5C2274528700776FF0 /* Inceptionv3.mlmodel in Sources */,
 				F4DB9D5E2274550F00776FF0 /* Extensions.swift in Sources */,
+				F4DB9D6B2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift in Sources */,
 				F4DB9D5A227447F600776FF0 /* MoreViewController.swift in Sources */,
 				F48AE6032274428C008323A6 /* MainViewController.swift in Sources */,
+				F4DB9D6D2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift in Sources */,
 				F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */,
 				F4DB9D602274555800776FF0 /* MainViewController+ARSessionDelegate.swift in Sources */,
 				F4DB9D62227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift in Sources */,

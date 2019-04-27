@@ -1,5 +1,5 @@
 //
-//  MainViewController+ARSessionDelegate.swift
+//  AddCustomObject+ARSessionDelegate.swift
 //  Mobileyes
 //
 //  Created by Berat Baran Cevik on 27/04/2019.
@@ -8,7 +8,7 @@
 
 import ARKit
 
-extension MainViewController: ARSessionDelegate {
+extension AddCustomObjectViewController: ARSessionDelegate {
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         switch camera.trackingState {

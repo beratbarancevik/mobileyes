@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Mobileyes
 //
 //  Created by Berat Baran Cevik on 27/04/2019.
@@ -23,7 +23,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScene()
-        initializeTabBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +41,6 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.isHidden = false
         
         pauseScene()
     }
@@ -52,16 +50,6 @@ class MainViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         get {
             return true
-        }
-    }
-    
-    // MARK: - UI Set-Up Functions
-    
-    private func initializeTabBar() {
-        if let items = tabBarController?.tabBar.items {
-            for item in items {
-                item.imageInsets = UIEdgeInsets.init(top: 5.5, left: 0, bottom: -5.5, right: 0)
-            }
         }
     }
     
