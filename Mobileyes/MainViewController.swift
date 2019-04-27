@@ -8,6 +8,8 @@
 
 import ARKit
 import AVFoundation
+import CoreMedia
+import Speech
 import UIKit
 import Vision
 
@@ -23,6 +25,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpScene()
+        requestTranscribePermissions()
+//        transcribeAudio()
+        
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(screenTapped))
+        view.addGestureRecognizer(gestureRecognizer)
+        
+//        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { (timer) in
+//            self.classifyCurrentImage()
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +93,15 @@ class MainViewController: UIViewController {
         sceneView.session.pause()
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     // MARK: - Vision classification
     
     // Vision classification request and model
@@ -89,11 +109,13 @@ class MainViewController: UIViewController {
     private lazy var classificationRequest: VNCoreMLRequest = {
         do {
             // Instantiate the model from its generated Swift class.
-            let model = try VNCoreMLModel(for: Inceptionv3().model)
+//            let model = try VNCoreMLModel(for: Inceptionv3().model)
+            let model = try VNCoreMLModel(for: MobileNetV2_SSDLite().model)
             let request = VNCoreMLRequest(
                 model: model,
                 completionHandler: { [weak self] request, error in
-                    self?.processClassifications(for: request, error: error)
+//                    self?.processClassifications(for: request, error: error)
+                    self?.processObservations(for: request, error: error)
             })
             
             // Crop input images to square area at center, matching the way the ML model was
@@ -123,16 +145,18 @@ class MainViewController: UIViewController {
         // orientation of the image with respect to device.
         let orientation = CGImagePropertyOrientation(UIDevice.current.orientation)
         
-        let requestHandler = VNImageRequestHandler(
-            cvPixelBuffer: currentBuffer!,
-            orientation: orientation)
-        visionQueue.async {
-            do {
-                // Release the pixel buffer when done, allowing the next buffer to be processed.
-                defer { self.currentBuffer = nil }
-                try requestHandler.perform([self.classificationRequest])
-            } catch {
-                print("Error: Vision request failed with error \"\(error)\"")
+        if let _ = currentBuffer {
+            let requestHandler = VNImageRequestHandler(
+                cvPixelBuffer: currentBuffer!,
+                orientation: orientation)
+            visionQueue.async {
+                do {
+                    // Release the pixel buffer when done, allowing the next buffer to be processed.
+                    defer { self.currentBuffer = nil }
+                    try requestHandler.perform([self.classificationRequest])
+                } catch {
+                    print("Error: Vision request failed with error \"\(error)\"")
+                }
             }
         }
     }
@@ -141,54 +165,333 @@ class MainViewController: UIViewController {
     var identifierString = ""
     var confidence: VNConfidence = 0.0
     
-    // Handle completion of the Vision request and choose results to display.
-    /// - Tag: ProcessClassifications
-    func processClassifications(for request: VNRequest, error: Error?) {
-        guard let results = request.results else {
-            print("Unable to classify image.\n\(error!.localizedDescription)")
-            return
+    var speechQueue = [String]()
+    
+    private func addToQueueCond(_ word: String) {
+        if !speechQueue.contains(word) {
+            speechQueue.append(word)
         }
-        // The `results` will always be `VNClassificationObservation`s, as specified by the Core ML
-        // model in this project.
-        let classifications = results as! [VNClassificationObservation]
-        
-        // Show a label for the highest-confidence result (but only above a minimum confidence
-        // threshold).
-        if let bestResult = classifications.first(where: { result in result.confidence > 0.5 }),
-            let label = bestResult.identifier.split(separator: ",").first {
-            identifierString = String(label)
-            confidence = bestResult.confidence
-        } else {
-            identifierString = ""
-            confidence = 0
+    }
+    
+    func processObservations(for request: VNRequest, error: Error?) {
+        DispatchQueue.main.async {
+            if !self.stopGuessing {
+                if let results = request.results as? [VNRecognizedObjectObservation] {
+                    for result in results {
+    //                    var words = ""
+                        for label in result.labels {
+                            if label.confidence > 0.5 {
+    //                            words += "\(label.identifier) "
+    //                            words.append("\(label.identifier) ")
+                                
+                                let width = self.view.bounds.width
+                                let height = width * 16 / 9
+                                let offsetY = (self.view.bounds.height - height) / 2
+                                let scale = CGAffineTransform.identity.scaledBy(x: width, y: height)
+                                let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -height - offsetY)
+                                let rect = result.boundingBox.applying(scale).applying(transform)
+                                self.sayTheWords(label.identifier, rect)
+                            }
+                        }
+    //                    print("Words: \(words)")
+    //                    self.sayTheWords(words)
+                    }
+                }
+            }
         }
-        
-        guard !self.identifierString.isEmpty else {
-            return // No object was classified.
-        }
-        
-        print(String(
-            format: "Detected \(self.identifierString) with %.2f",
-            self.confidence * 100) + "% confidence")
-        
-        sayTheWords(self.identifierString)
-        
-//        DispatchQueue.main.async { [weak self] in
-//            guard let name = self?.identifierString else {
-//                return
+    }
+    
+    private func alternateHandling(for request: VNRequest, error: Error?) {
+//        guard let results = request.results else {
+//            print("Unable to classify image.\n\(error!.localizedDescription)")
+//            return
+//        }
+//
+//        let labels = results as! [VNRecognizedObjectObservation]
+//
+//        // Show a label for the highest-confidence result (but only above a minimum confidence
+//        // threshold).
+//
+//        var index = 0
+//        for label in labels {
+//            if label.confidence > 0.5 {
+//                if index < 5 {
+//                    print(label.identifier)
+//                    index += 1
+//                }
 //            }
-            
-//            self?.delegate?.foundObject(with: name)
-//            self?.dismiss(animated: true, completion: nil)
+//        }
+//
+//        if let bestResult = labels.first(where: { result in result.confidence > 0.5 }),
+//            let label = bestResult.identifier.split(separator: ",").first {
+//            identifierString = String(label)
+//            confidence = bestResult.confidence
+//        } else {
+//            identifierString = ""
+//            confidence = 0
+//        }
+//
+//        guard !self.identifierString.isEmpty else {
+//            return // No object was classified.
+//        }
+//
+//
+//
+//
+//
+//        if let bestResult = labels.first(where: { result in result.confidence > 0.5 }),
+//            let label = bestResult.identifier.split(separator: ",").first {
+//            identifierString = String(label)
+//            confidence = bestResult.confidence
+//        } else {
+//            identifierString = ""
+//            confidence = 0
 //        }
     }
     
+    // Handle completion of the Vision request and choose results to display.
+    /// - Tag: ProcessClassifications
+//    func processClassifications(for request: VNRequest, error: Error?) {
+//        guard let results = request.results else {
+//            print("Unable to classify image.\n\(error!.localizedDescription)")
+//            return
+//        }
+//        // The `results` will always be `VNClassificationObservation`s, as specified by the Core ML
+//        // model in this project.
+//        let labels = results as! [VNRecognizedObjectObservation]
+//
+//        // Show a label for the highest-confidence result (but only above a minimum confidence
+//        // threshold).
+//
+//        var index = 0
+//        for label in labels {
+//            if label.confidence > 0.5 {
+//                if index < 5 {
+//                    print(label.identifier)
+//                    index += 1
+//                }
+//            }
+//        }
+//
+//        if let bestResult = labels.first(where: { result in result.confidence > 0.5 }),
+//            let label = bestResult.identifier.split(separator: ",").first {
+//            identifierString = String(label)
+//            confidence = bestResult.confidence
+//        } else {
+//            identifierString = ""
+//            confidence = 0
+//        }
+//
+//        guard !self.identifierString.isEmpty else {
+//            return // No object was classified.
+//        }
+//
+//        print(String(
+//            format: "Detected \(self.identifierString) with %.2f",
+//            self.confidence * 100) + "% confidence")
+//
+////        sayTheWords(self.identifierString)
+//
+//
+//
+////        DispatchQueue.main.async { [weak self] in
+////            guard let name = self?.identifierString else {
+////                return
+////            }
+//
+////            self?.delegate?.foundObject(with: name)
+////            self?.dismiss(animated: true, completion: nil)
+////        }
+//    }
+    
     // MARK: - Speech
     
-    private func sayTheWords(_ words: String) {
-        let utterance = AVSpeechUtterance(string: words)
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
+    var searchWord: String?
+    
+    private func sayTheWords(_ word: String, _ rect: CGRect) {
+//        var isSearch = false
+//
+//        var searchedWord = ""
+//
+//        if let sWord = searchWord {
+//            searchedWord = sWord
+//            isSearch = true
+//        }
+        
+        if searchWord?.lowercased() == word || searchWord == nil {
+            let leftX = view.frame.width / 3
+            let rightX = view.frame.width / 3 * 2
+            
+            let upY = view.frame.height / 3
+            let downY = view.frame.height / 3 * 2
+            
+            let objectX = rect.origin.x
+            let objectY = rect.origin.y
+            
+            var locationWord = ""
+            
+            if objectX < leftX {
+                locationWord = " left "
+            } else if objectX > rightX {
+                locationWord = " right "
+            }
+            
+            if objectY < upY {
+                locationWord += " up "
+            } else if objectY > downY {
+                locationWord += " down "
+            }
+        
+//        addToQueueCond(word + locationWord)
+//
+//        let speechWord = speechQueue.removeFirst()
+            
+            let utterance = AVSpeechUtterance(string: word + locationWord)
+//            utterance.rate = 0.6
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+            
+            print(word)
+            print(rect.origin.x)
+            print(view.frame.midX)
+            print(rect.origin.y)
+            print(view.frame.midY)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - Speech to Text
+    
+    func requestTranscribePermissions() {
+        SFSpeechRecognizer.requestAuthorization { [unowned self] authStatus in
+            DispatchQueue.main.async {
+                if authStatus == .authorized {
+                    return
+                } else {
+                    print("Transcription permission was declined.")
+                }
+            }
+        }
+    }
+    
+    func transcribeAudio(url: URL) {
+        // create a new recognizer and point it at our audio
+        let recognizer = SFSpeechRecognizer()
+        let request = SFSpeechURLRecognitionRequest(url: url)
+        
+        // start recognition!
+        recognizer?.recognitionTask(with: request) { [unowned self] (result, error) in
+            // abort if we didn't get any transcription back
+            guard let result = result else {
+                print("There was an error: \(error!)")
+                return
+            }
+            
+            // if we got the final transcription back, print it
+            if result.isFinal {
+                // pull out the best transcription...
+                print(result.bestTranscription.formattedString)
+            }
+        }
+    }
+    
+    var stopGuessing = false
+    
+    @objc private func screenTapped(recognizer: UILongPressGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            print("BEGAN")
+            stopGuessing = true
+            startRecording()
+        case .ended:
+            stopGuessing = false
+            endRecording()
+        default:
+            break
+        }
+    }
+    
+    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
+    
+    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    private var recognitionTask: SFSpeechRecognitionTask?
+    private let audioEngine = AVAudioEngine()
+    
+    let audioSession = AVAudioSession.sharedInstance()
+    
+    func startRecording() {
+        if recognitionTask != nil {
+            recognitionTask?.cancel()
+            recognitionTask = nil
+        }
+        
+        do {
+            try audioSession.setCategory(AVAudioSession.Category.record)
+            try audioSession.setMode(AVAudioSession.Mode.measurement)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("audioSession properties weren't set because of an error.")
+        }
+        
+        recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
+        
+        let inputNode = audioEngine.inputNode
+        
+        guard let recognitionRequest = recognitionRequest else {
+            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+        }
+        
+        recognitionRequest.shouldReportPartialResults = true
+        
+        recognitionTask = speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { result, error in
+            
+            var isFinal = false
+            
+            if result != nil {
+                
+                print(result?.bestTranscription.formattedString)
+                isFinal = (result?.isFinal)!
+                
+                self.searchWord = result?.bestTranscription.formattedString
+            }
+            
+            if error != nil || isFinal {
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+            }
+        })
+        
+        let recordingFormat = inputNode.outputFormat(forBus: 1)
+        inputNode.installTap(onBus: 1, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+            self.recognitionRequest?.append(buffer)
+        }
+        
+        audioEngine.prepare()
+        
+        do {
+            try audioEngine.start()
+        } catch {
+            print("audioEngine couldn't start because of an error.")
+        }
+    }
+    
+    func endRecording() {
+        do {
+            try audioSession.setActive(false, options: .notifyOthersOnDeactivation)
+        } catch {
+            print("EXCEPTION HANDLING")
+        }
+        
+        
+//        audioEngine.stop()
+//        audioEngine.inputNode.removeTap(onBus: 1)
     }
 }
 
