@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E7BE749E108E33CCBC419E5 /* Pods_Mobileyes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */; };
 		F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6002274428C008323A6 /* AppDelegate.swift */; };
 		F48AE6032274428C008323A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6022274428C008323A6 /* ViewController.swift */; };
 		F48AE6062274428C008323A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6042274428C008323A6 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10069B3F42F46B59BBC1AF4C /* Pods-Mobileyes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobileyes.release.xcconfig"; path = "Target Support Files/Pods-Mobileyes/Pods-Mobileyes.release.xcconfig"; sourceTree = "<group>"; };
+		2B8EA9C5106E983F39621FD7 /* Pods-Mobileyes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobileyes.debug.xcconfig"; path = "Target Support Files/Pods-Mobileyes/Pods-Mobileyes.debug.xcconfig"; sourceTree = "<group>"; };
+		9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobileyes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48AE5FD2274428C008323A6 /* Mobileyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobileyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48AE6002274428C008323A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F48AE6022274428C008323A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E7BE749E108E33CCBC419E5 /* Pods_Mobileyes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		15B594C09969051FD6E48D28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C22030E485FAB2819D53B0ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2B8EA9C5106E983F39621FD7 /* Pods-Mobileyes.debug.xcconfig */,
+				10069B3F42F46B59BBC1AF4C /* Pods-Mobileyes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F48AE5F42274428C008323A6 = {
 			isa = PBXGroup;
 			children = (
 				F48AE5FF2274428C008323A6 /* Mobileyes */,
 				F48AE5FE2274428C008323A6 /* Products */,
+				C22030E485FAB2819D53B0ED /* Pods */,
+				15B594C09969051FD6E48D28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,8 +81,8 @@
 				F48AE6002274428C008323A6 /* AppDelegate.swift */,
 				F48AE6022274428C008323A6 /* ViewController.swift */,
 				F48AE6042274428C008323A6 /* Main.storyboard */,
-				F48AE6072274428F008323A6 /* Assets.xcassets */,
 				F48AE6092274428F008323A6 /* LaunchScreen.storyboard */,
+				F48AE6072274428F008323A6 /* Assets.xcassets */,
 				F48AE60C2274428F008323A6 /* Info.plist */,
 			);
 			path = Mobileyes;
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F48AE60F2274428F008323A6 /* Build configuration list for PBXNativeTarget "Mobileyes" */;
 			buildPhases = (
+				8AFE0B87148B4AD82173A5A1 /* [CP] Check Pods Manifest.lock */,
 				F48AE5F92274428C008323A6 /* Sources */,
 				F48AE5FA2274428C008323A6 /* Frameworks */,
 				F48AE5FB2274428C008323A6 /* Resources */,
+				47CF135E7524B07DF7B30F0B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47CF135E7524B07DF7B30F0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobileyes/Pods-Mobileyes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Mobileyes/Pods-Mobileyes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobileyes/Pods-Mobileyes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AFE0B87148B4AD82173A5A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mobileyes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F48AE5F92274428C008323A6 /* Sources */ = {
@@ -280,11 +348,13 @@
 		};
 		F48AE6102274428F008323A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B8EA9C5106E983F39621FD7 /* Pods-Mobileyes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SWNKP2F4V;
 				INFOPLIST_FILE = Mobileyes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -298,11 +368,13 @@
 		};
 		F48AE6112274428F008323A6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10069B3F42F46B59BBC1AF4C /* Pods-Mobileyes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8SWNKP2F4V;
 				INFOPLIST_FILE = Mobileyes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
