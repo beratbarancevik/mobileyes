@@ -34,7 +34,8 @@ class MainViewController: UIViewController {
         doubleTapGR.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTapGR)
         
-//        sayIntroduction()
+        sayIntroduction()
+        sayTutorial()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,14 +48,7 @@ class MainViewController: UIViewController {
         speechSpeed = UserDefaults.standard.float(forKey: "Mobileyes.Settings.Speech")
         print("Speech speed: \(speechSpeed)")
         
-        if ARConfiguration.isSupported {
-            startSession()
-        } else {
-            showError(with: "Your device does not support augmented reality :(")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
+        initAR()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -106,12 +100,35 @@ class MainViewController: UIViewController {
     
     // MARK: - Speech
     
-//    private func sayIntroduction() {
-//        let utterance = AVSpeechUtterance(string: "Welcome to Westworld")
-//        utterance.rate = speechSpeed
-//        let synthesizer = AVSpeechSynthesizer()
-//        synthesizer.speak(utterance)
-//    }
+    private func sayIntroduction() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let utterance = AVSpeechUtterance(string: "Welcome to Mobilize")
+            print("Welcome to Mobilize")
+            utterance.rate = self.speechSpeed
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        }
+    }
+    
+    private func sayTutorial() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            let utterance = AVSpeechUtterance(string: "Tap and hold for voice commands")
+            print("Tap and hold for voice commands")
+            utterance.rate = self.speechSpeed
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        }
+    }
+    
+    private func initAR() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.0) {
+            if ARConfiguration.isSupported {
+                self.startSession()
+            } else {
+                self.showError(with: "Your device does not support augmented reality :(")
+            }
+        }
+    }
 
     
     
@@ -205,7 +222,8 @@ class MainViewController: UIViewController {
                                 let height = width * 16 / 9
                                 let offsetY = (self.view.bounds.height - height) / 2
                                 let scale = CGAffineTransform.identity.scaledBy(x: width, y: height)
-                                let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -height - offsetY)
+                                let transform = CGAffineTransform(scaleX: 1, y: -1)
+                                    .translatedBy(x: 0, y: -height - offsetY)
                                 let rect = result.boundingBox.applying(scale).applying(transform)
                                 print(label.confidence)
                                 self.sayTheWords(label.identifier, rect)
@@ -219,15 +237,27 @@ class MainViewController: UIViewController {
     
     // MARK: - Speech
     
+    var isSettingsSaid = false
+    
+    private func saySettingsIntro() {
+        if isSettingsSaid {
+            let utterance = AVSpeechUtterance(string: "Settings, say confidence or speed")
+            print("Settings")
+            utterance.rate = self.speechSpeed
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        }
+    }
+    
     var searchWord: String?
     
     private func sayTheWords(_ word: String, _ rect: CGRect) {
         if searchWord?.lowercased() == word || searchWord == nil {
-            let leftX = view.frame.width / 5
-            let rightX = view.frame.width / 5 * 4
+            let leftX = view.frame.width / 3
+            let rightX = view.frame.width / 3 * 2
             
-            let upY = view.frame.height / 5
-            let downY = view.frame.height / 5 * 4
+            let upY = view.frame.height / 3
+            let downY = view.frame.height / 3 * 2
             
             let objectX = rect.origin.x
             let objectY = rect.origin.y
@@ -314,13 +344,17 @@ class MainViewController: UIViewController {
     
     var stopGuessing = false
     
+    let notification = UINotificationFeedbackGenerator()
+    
     @objc private func screenTapped(recognizer: UILongPressGestureRecognizer) {
         switch recognizer.state {
         case .began:
+            notification.notificationOccurred(.success)
             print("BEGAN")
             stopGuessing = true
             startRecording()
         case .ended:
+            notification.notificationOccurred(.error)
             stopGuessing = false
             endRecording()
         default:
@@ -329,7 +363,9 @@ class MainViewController: UIViewController {
     }
     
     @objc private func doubleTapped(recognizer: UITapGestureRecognizer) {
+        notification.notificationOccurred(.warning)
         searchWord = nil
+        isSettingsSaid = false
     }
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
@@ -420,9 +456,38 @@ class MainViewController: UIViewController {
             print("audioSession properties weren't set because of an error.")
         }
         
-        let utterance = AVSpeechUtterance(string: "Looking for \(searchWord ?? "")")
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
+        
+        
+        // settings
+        if let searchWord = searchWord {
+            switch searchWord.lowercased() {
+            case "settings":
+                isSettingsSaid = true
+                saySettingsIntro()
+                return
+            case "speed":
+                saySpeedHelp()
+                return
+            case "increase", "up":
+                upSpeed()
+                return
+            case "decrease", "down":
+                downSpeed()
+                return
+            default:
+                sayError()
+                break
+            }
+        }
+        
+        
+        if !isSettingsSaid {
+            if let word = searchWord, word != "" {
+                let utterance = AVSpeechUtterance(string: "Looking for \(searchWord ?? "")")
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(utterance)
+            }
+        }
     }
 }
 
