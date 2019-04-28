@@ -14,8 +14,8 @@ class MoreViewController: UIViewController {
     // MARK: - UI Variables
 
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var technologySegmentedControl: UISegmentedControl!
     @IBOutlet weak var confidenceSlider: UISlider!
+    @IBOutlet weak var speechSlider: UISlider!
     @IBOutlet weak var addCustomObjectButton: UIButton!
     
     // MARK: - View Controller Life Cycle Methods
@@ -46,13 +46,13 @@ class MoreViewController: UIViewController {
     }
     
     private func updateUI() {
-        let technologySetting =
-            UserDefaults.standard.integer(forKey: "Mobileyes.Settings.Technology")
         let confidenceSetting =
             UserDefaults.standard.float(forKey: "Mobileyes.Settings.Confidence")
+        let speechSetting =
+            UserDefaults.standard.float(forKey: "Mobileyes.Settings.Speech")
         
-        technologySegmentedControl.selectedSegmentIndex = technologySetting
         confidenceSlider.setValue(confidenceSetting, animated: true)
+        speechSlider.setValue(speechSetting, animated: true)
     }
     
     // MARK: - User Interaction Functions
@@ -64,11 +64,11 @@ class MoreViewController: UIViewController {
     // MARK: - Data Persistence
     
     private func saveSettings() {
-        let technologySetting = technologySegmentedControl.selectedSegmentIndex
-        UserDefaults.standard.set(technologySetting, forKey: "Mobileyes.Settings.Technology")
-        
         let confidenceSetting = confidenceSlider.value
         UserDefaults.standard.set(confidenceSetting, forKey: "Mobileyes.Settings.Confidence")
+        
+        let speechSetting = speechSlider.value
+        UserDefaults.standard.set(speechSetting, forKey: "Mobileyes.Settings.Speech")
         
         UserDefaults.standard.synchronize()
     }

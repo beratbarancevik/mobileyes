@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "MainViewController.endRecording():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "searchWord">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MainViewController.sayTheWords(_:_:):MainViewController.swift">
          <PersistentStrings>
             <PersistentString

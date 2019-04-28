@@ -29,11 +29,23 @@ class MainViewController: UIViewController {
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(screenTapped))
         view.addGestureRecognizer(gestureRecognizer)
+        
+        let doubleTapGR = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        doubleTapGR.numberOfTapsRequired = 2
+        view.addGestureRecognizer(doubleTapGR)
+        
+//        sayIntroduction()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
+        
+        minConfidence = UserDefaults.standard.float(forKey: "Mobileyes.Settings.Confidence")
+        print("Min conf: \(minConfidence)")
+        
+        speechSpeed = UserDefaults.standard.float(forKey: "Mobileyes.Settings.Speech")
+        print("Speech speed: \(speechSpeed)")
         
         if ARConfiguration.isSupported {
             startSession()
@@ -87,6 +99,19 @@ class MainViewController: UIViewController {
     private func pauseScene() {
         sceneView.session.pause()
     }
+    
+    
+    
+    
+    
+    // MARK: - Speech
+    
+//    private func sayIntroduction() {
+//        let utterance = AVSpeechUtterance(string: "Welcome to Westworld")
+//        utterance.rate = speechSpeed
+//        let synthesizer = AVSpeechSynthesizer()
+//        synthesizer.speak(utterance)
+//    }
 
     
     
@@ -160,6 +185,9 @@ class MainViewController: UIViewController {
     
     var speechQueue = [String]()
     
+    var minConfidence: Float = 0.5
+    var speechSpeed: Float = 0.5
+    
     private func addToQueueCond(_ word: String) {
         if !speechQueue.contains(word) {
             speechQueue.append(word)
@@ -172,13 +200,14 @@ class MainViewController: UIViewController {
                 if let results = request.results as? [VNRecognizedObjectObservation] {
                     for result in results {
                         for label in result.labels {
-                            if label.confidence > 0.5 {
+                            if label.confidence > self.minConfidence {
                                 let width = self.view.bounds.width
                                 let height = width * 16 / 9
                                 let offsetY = (self.view.bounds.height - height) / 2
                                 let scale = CGAffineTransform.identity.scaledBy(x: width, y: height)
                                 let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -height - offsetY)
                                 let rect = result.boundingBox.applying(scale).applying(transform)
+                                print(label.confidence)
                                 self.sayTheWords(label.identifier, rect)
                             }
                         }
@@ -194,38 +223,52 @@ class MainViewController: UIViewController {
     
     private func sayTheWords(_ word: String, _ rect: CGRect) {
         if searchWord?.lowercased() == word || searchWord == nil {
-            let leftX = view.frame.width / 3
-            let rightX = view.frame.width / 3 * 2
+            let leftX = view.frame.width / 5
+            let rightX = view.frame.width / 5 * 4
             
-            let upY = view.frame.height / 3
-            let downY = view.frame.height / 3 * 2
+            let upY = view.frame.height / 5
+            let downY = view.frame.height / 5 * 4
             
             let objectX = rect.origin.x
             let objectY = rect.origin.y
             
             var locationWord = ""
             
-            if objectX < leftX {
-                locationWord = " left "
-            } else if objectX > rightX {
-                locationWord = " right "
+            if (rect.size.width <= leftX) && (rect.size.height <= upY) {
+                if objectY < upY {
+                    locationWord = " is at the top"
+                } else if objectY > downY {
+                    locationWord = " is at the bottom"
+                }
+                
+                if objectX < leftX {
+                    if locationWord.contains("is") {
+                        locationWord += " left"
+                    } else {
+                        locationWord += " is on the left"
+                    }
+                } else if objectX > rightX {
+                    if locationWord.contains("is") {
+                        locationWord += " right"
+                    } else {
+                        locationWord += " is on the right"
+                    }
+                }
             }
             
-            if objectY < upY {
-                locationWord += " up "
-            } else if objectY > downY {
-                locationWord += " down "
-            }
+            
             
             let utterance = AVSpeechUtterance(string: word + locationWord)
+            utterance.rate = speechSpeed
             let synthesizer = AVSpeechSynthesizer()
             synthesizer.speak(utterance)
             
+            
             print(word + locationWord)
-            print(rect.origin.x)
-            print(view.frame.midX)
-            print(rect.origin.y)
-            print(view.frame.midY)
+//            print(rect.origin.x)
+//            print(view.frame.midX)
+//            print(rect.origin.y)
+//            print(view.frame.midY)
         }
     }
     
@@ -283,6 +326,10 @@ class MainViewController: UIViewController {
         default:
             break
         }
+    }
+    
+    @objc private func doubleTapped(recognizer: UITapGestureRecognizer) {
+        searchWord = nil
     }
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
@@ -353,6 +400,17 @@ class MainViewController: UIViewController {
     }
     
     func endRecording() {
+        audioEngine.inputNode.removeTap(onBus: 0)
+        
+        
+        audioEngine.inputNode.reset()
+        audioEngine.stop()
+        recognitionRequest?.endAudio()
+        recognitionTask?.cancel()
+        recognitionTask = nil
+        recognitionRequest = nil
+        
+        
         audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSession.Category.soloAmbient)
@@ -361,6 +419,10 @@ class MainViewController: UIViewController {
         } catch {
             print("audioSession properties weren't set because of an error.")
         }
+        
+        let utterance = AVSpeechUtterance(string: "Looking for \(searchWord ?? "")")
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
     }
 }
 
