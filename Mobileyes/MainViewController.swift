@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     // MARK: - UI Variables
 
     @IBOutlet weak var sceneView: ARSCNView!
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var openingView: UIView!
     
     // MARK: - View Controller Life Cycle Methods
     
@@ -79,6 +79,11 @@ class MainViewController: UIViewController {
     
     private func startSession() {
         if ARWorldTrackingConfiguration.isSupported {
+            if let _ = openingView {
+                if openingView.isDescendant(of: view) {
+                    openingView.removeFromSuperview()
+                }
+            }
             let configuration = ARWorldTrackingConfiguration()
             configuration.environmentTexturing = .automatic
             sceneView.session.run(configuration)

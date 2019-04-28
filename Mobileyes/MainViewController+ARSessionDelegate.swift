@@ -13,13 +13,13 @@ extension MainViewController: ARSessionDelegate {
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         switch camera.trackingState {
         case .normal:
-            messageLabel.text = "Point to the item that you want to search"
+//            messageLabel.text = "Point to the item that you want to search"
             let configuration = ARWorldTrackingConfiguration()
             configuration.environmentTexturing = .automatic
             sceneView.session.run(configuration)
         case .limited(let reason):
             print("Limited tracking reason: \(reason)")
-            messageLabel.text = "Try moving your phone around"
+//            messageLabel.text = "Try moving your phone around"
         case .notAvailable:
             showError(with: "AR is not available :(")
         }
