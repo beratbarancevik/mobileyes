@@ -10,12 +10,20 @@
 		3E7BE749E108E33CCBC419E5 /* Pods_Mobileyes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */; };
 		7029C8BF22744BAB00A88B24 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 7029C8BE22744BAB00A88B24 /* Inceptionv3.mlmodel */; };
 		F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6002274428C008323A6 /* AppDelegate.swift */; };
-		F48AE6032274428C008323A6 /* BeratViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6022274428C008323A6 /* BeratViewController.swift */; };
-		F48AE6062274428C008323A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6042274428C008323A6 /* Main.storyboard */; };
+		F48AE6032274428C008323A6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48AE6022274428C008323A6 /* MainViewController.swift */; };
 		F48AE6082274428F008323A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6072274428F008323A6 /* Assets.xcassets */; };
-		F48AE60B2274428F008323A6 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F48AE6092274428F008323A6 /* Launch.storyboard */; };
-		F4DB9D582274462800776FF0 /* OmerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D572274462800776FF0 /* OmerViewController.swift */; };
-		F4DB9D5A227447F600776FF0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D59227447F600776FF0 /* MasterViewController.swift */; };
+		F49DE44A2275992E00E6A504 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49DE4492275992E00E6A504 /* Settings.swift */; };
+		F4DB9D5A227447F600776FF0 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D59227447F600776FF0 /* MoreViewController.swift */; };
+		F4DB9D5C2274528700776FF0 /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D5B2274528700776FF0 /* Inceptionv3.mlmodel */; };
+		F4DB9D5E2274550F00776FF0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D5D2274550F00776FF0 /* Extensions.swift */; };
+		F4DB9D602274555800776FF0 /* MainViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */; };
+		F4DB9D62227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */; };
+		F4DB9D652274654A00776FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DB9D642274654A00776FF0 /* Main.storyboard */; };
+		F4DB9D672274655400776FF0 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4DB9D662274655400776FF0 /* Launch.storyboard */; };
+		F4DB9D69227474CA00776FF0 /* AddCustomObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D68227474CA00776FF0 /* AddCustomObjectViewController.swift */; };
+		F4DB9D6B2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D6A2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift */; };
+		F4DB9D6D2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D6C2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift */; };
+		F4DB9D772274A47000776FF0 /* MobileNetV2_SSDLite.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = F4DB9D762274A47000776FF0 /* MobileNetV2_SSDLite.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,13 +33,21 @@
 		9E7079B3DC8EF765A570F3DD /* Pods_Mobileyes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobileyes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48AE5FD2274428C008323A6 /* Mobileyes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobileyes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48AE6002274428C008323A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F48AE6022274428C008323A6 /* BeratViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeratViewController.swift; sourceTree = "<group>"; };
-		F48AE6052274428C008323A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F48AE6022274428C008323A6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F48AE6072274428F008323A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F48AE60A2274428F008323A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Launch.storyboard; sourceTree = "<group>"; };
 		F48AE60C2274428F008323A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F4DB9D572274462800776FF0 /* OmerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmerViewController.swift; sourceTree = "<group>"; };
-		F4DB9D59227447F600776FF0 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		F49DE4492275992E00E6A504 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F4DB9D59227447F600776FF0 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		F4DB9D5B2274528700776FF0 /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
+		F4DB9D5D2274550F00776FF0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
+		F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+ARCNViewDelegate.swift"; sourceTree = "<group>"; };
+		F4DB9D642274654A00776FF0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F4DB9D662274655400776FF0 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		F4DB9D68227474CA00776FF0 /* AddCustomObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomObjectViewController.swift; sourceTree = "<group>"; };
+		F4DB9D6A2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCustomObjectViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		F4DB9D6C2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCustomObject+ARSessionDelegate.swift"; sourceTree = "<group>"; };
+		F4DB9D762274A47000776FF0 /* MobileNetV2_SSDLite.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2_SSDLite.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,17 +100,32 @@
 		F48AE5FF2274428C008323A6 /* Mobileyes */ = {
 			isa = PBXGroup;
 			children = (
-				7029C8BE22744BAB00A88B24 /* Inceptionv3.mlmodel */,
-				F4DB9D572274462800776FF0 /* OmerViewController.swift */,
-				F4DB9D59227447F600776FF0 /* MasterViewController.swift */,
-				F48AE6022274428C008323A6 /* BeratViewController.swift */,
-				F48AE6042274428C008323A6 /* Main.storyboard */,
-				F48AE6092274428F008323A6 /* Launch.storyboard */,
-				F48AE6072274428F008323A6 /* Assets.xcassets */,
-				F48AE60C2274428F008323A6 /* Info.plist */,
-				F48AE6002274428C008323A6 /* AppDelegate.swift */,
+				F4DB9D642274654A00776FF0 /* Main.storyboard */,
+				F48AE6022274428C008323A6 /* MainViewController.swift */,
+				F4DB9D61227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift */,
+				F4DB9D5F2274555800776FF0 /* MainViewController+ARSessionDelegate.swift */,
+				F4DB9D59227447F600776FF0 /* MoreViewController.swift */,
+				F4DB9D68227474CA00776FF0 /* AddCustomObjectViewController.swift */,
+				F4DB9D6A2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift */,
+				F4DB9D6C2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift */,
+				F49DE4492275992E00E6A504 /* Settings.swift */,
+				F4DB9D632274646D00776FF0 /* Supporting Files */,
 			);
 			path = Mobileyes;
+			sourceTree = "<group>";
+		};
+		F4DB9D632274646D00776FF0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F48AE6002274428C008323A6 /* AppDelegate.swift */,
+				F4DB9D5D2274550F00776FF0 /* Extensions.swift */,
+				F4DB9D662274655400776FF0 /* Launch.storyboard */,
+				F48AE6072274428F008323A6 /* Assets.xcassets */,
+				F48AE60C2274428F008323A6 /* Info.plist */,
+				F4DB9D5B2274528700776FF0 /* Inceptionv3.mlmodel */,
+				F4DB9D762274A47000776FF0 /* MobileNetV2_SSDLite.mlmodel */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +157,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = Mobileyes;
 				TargetAttributes = {
 					F48AE5FC2274428C008323A6 = {
@@ -157,9 +188,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F48AE60B2274428F008323A6 /* Launch.storyboard in Resources */,
 				F48AE6082274428F008323A6 /* Assets.xcassets in Resources */,
-				F48AE6062274428C008323A6 /* Main.storyboard in Resources */,
+				F4DB9D652274654A00776FF0 /* Main.storyboard in Resources */,
+				F4DB9D672274655400776FF0 /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,34 +243,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7029C8BF22744BAB00A88B24 /* Inceptionv3.mlmodel in Sources */,
-				F4DB9D5A227447F600776FF0 /* MasterViewController.swift in Sources */,
-				F48AE6032274428C008323A6 /* BeratViewController.swift in Sources */,
+				F4DB9D69227474CA00776FF0 /* AddCustomObjectViewController.swift in Sources */,
+				F4DB9D5C2274528700776FF0 /* Inceptionv3.mlmodel in Sources */,
+				F4DB9D5E2274550F00776FF0 /* Extensions.swift in Sources */,
+				F4DB9D772274A47000776FF0 /* MobileNetV2_SSDLite.mlmodel in Sources */,
+				F4DB9D6B2274829C00776FF0 /* AddCustomObjectViewController+ARSCNViewDelegate.swift in Sources */,
+				F4DB9D5A227447F600776FF0 /* MoreViewController.swift in Sources */,
+				F49DE44A2275992E00E6A504 /* Settings.swift in Sources */,
+				F48AE6032274428C008323A6 /* MainViewController.swift in Sources */,
+				F4DB9D6D2274839900776FF0 /* AddCustomObject+ARSessionDelegate.swift in Sources */,
 				F48AE6012274428C008323A6 /* AppDelegate.swift in Sources */,
-				F4DB9D582274462800776FF0 /* OmerViewController.swift in Sources */,
+				F4DB9D602274555800776FF0 /* MainViewController+ARSessionDelegate.swift in Sources */,
+				F4DB9D62227455F400776FF0 /* MainViewController+ARCNViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		F48AE6042274428C008323A6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F48AE6052274428C008323A6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		F48AE6092274428F008323A6 /* Launch.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F48AE60A2274428F008323A6 /* Base */,
-			);
-			name = Launch.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F48AE60D2274428F008323A6 /* Debug */ = {
@@ -268,6 +287,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -329,6 +349,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -364,8 +385,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GNHVTXYL4;
-				INFOPLIST_FILE = Mobileyes/Info.plist;
+				DEVELOPMENT_TEAM = 3978A7VN36;
+				INFOPLIST_FILE = "$(SRCROOT)/Mobileyes/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,8 +405,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5GNHVTXYL4;
-				INFOPLIST_FILE = Mobileyes/Info.plist;
+				DEVELOPMENT_TEAM = 3978A7VN36;
+				INFOPLIST_FILE = "$(SRCROOT)/Mobileyes/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
