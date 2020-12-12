@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wla-DM-Oej">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wla-DM-Oej">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,6 +48,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Yn-fw-mOZ"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0Yn-fw-mOZ" firstAttribute="bottom" secondItem="n1c-ou-T3z" secondAttribute="bottom" id="0Ph-gl-cpi"/>
@@ -63,7 +62,6 @@
                             <constraint firstItem="n1c-ou-T3z" firstAttribute="leading" secondItem="0Yn-fw-mOZ" secondAttribute="leading" id="okf-Ck-QDe"/>
                             <constraint firstItem="GH5-SU-Vjb" firstAttribute="leading" secondItem="0Yn-fw-mOZ" secondAttribute="leading" constant="20" id="ro1-wK-RmP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="0Yn-fw-mOZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="Im5-da-JC8"/>
                     <connections>
@@ -92,7 +90,7 @@
                                 <state key="normal" image="back"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k3m-O3-Mb2">
-                                <rect key="frame" x="175.5" y="23.5" width="63.5" height="21"/>
+                                <rect key="frame" x="175.5" y="23.5" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,7 +111,7 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-1h-lFW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-1h-lFW">
                                 <rect key="frame" x="40" y="483.5" width="334" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -127,7 +125,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speech Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fja-cK-yCS">
-                                <rect key="frame" x="16" y="314.5" width="112" height="21"/>
+                                <rect key="frame" x="16" y="314.5" width="111" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -142,6 +140,7 @@
                                 <rect key="frame" x="38" y="355.5" width="338" height="31"/>
                             </slider>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="fog-kJ-Edg"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="k3m-O3-Mb2" firstAttribute="centerX" secondItem="PYM-Wo-vdX" secondAttribute="centerX" id="1mm-Ek-ceD"/>
@@ -168,7 +167,6 @@
                             <constraint firstItem="TmW-En-lVE" firstAttribute="top" secondItem="qOZ-ur-NIA" secondAttribute="bottom" constant="20" id="l0L-79-gE2"/>
                             <constraint firstItem="bxS-v6-Ct0" firstAttribute="top" secondItem="fja-cK-yCS" secondAttribute="bottom" constant="20" id="tIb-Eo-ttj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fog-kJ-Edg"/>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -213,6 +211,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="YZN-XK-hUm"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tfQ-ss-rRo" firstAttribute="leading" secondItem="YZN-XK-hUm" secondAttribute="leading" id="0YA-zx-bdM"/>
@@ -223,7 +222,6 @@
                             <constraint firstItem="tfQ-ss-rRo" firstAttribute="top" secondItem="YZN-XK-hUm" secondAttribute="top" id="hKU-hL-mEk"/>
                             <constraint firstAttribute="trailing" secondItem="ZLf-wx-GXU" secondAttribute="trailing" id="ncy-ZA-Fj9"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YZN-XK-hUm"/>
                     </view>
                     <connections>
                         <outlet property="messageLabel" destination="Pa6-VR-wG0" id="xDc-dZ-hLw"/>
@@ -238,7 +236,7 @@
         <scene sceneID="KOF-3e-TeL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wla-DM-Oej" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="heart" id="n43-kh-MK2">
+                    <tabBarItem key="tabBarItem" title="" image="more" id="n43-kh-MK2">
                         <color key="badgeColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -258,7 +256,6 @@
     </scenes>
     <resources>
         <image name="back" width="24" height="24"/>
-        <image name="heart" width="24" height="24"/>
         <image name="mobileyes" width="1024" height="1024"/>
         <image name="more" width="24" height="24"/>
     </resources>
